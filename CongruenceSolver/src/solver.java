@@ -22,11 +22,15 @@ public class solver {
                 for (int i = 0; i < mods.size(); i++)
                     m *= mods.get(i); // multiply the modulos to get m
 
-                for (int i = 0; i < mods.size(); i++)
+                for (int i = 0; i < mods.size(); i++){
                     // Chinese Remainder Theorem formula
-                    x += (vals.get(i) * (m / mods.get(i)) * (m / mods.get(i) % mods.get(i)));
-
-                System.out.println(x);
+                    x += (vals.get(i) * (m / mods.get(i)) * modInverse((m / mods.get(i)), mods.get(i)));
+                }
+                
+                while(x < 0)
+                    x = x + m;
+                
+                System.out.println(x % m + "(mod" + m + ")");
             } else
                 System.out.println("Mod input is not pairwise relatively prime!");
         } else {
@@ -46,6 +50,15 @@ public class solver {
             return gcd(b, Math.abs(a - b));
     }
 
+    static int modInverse(int a, int b)
+    {
+ 
+        for (int i = 1; i < b; i++)
+            if (((a % b) * (i % b)) % b == 1)
+                return i;
+        return 1;
+    }
+
     public static void main(String[] args) {
         // To run the program, create two lists and fill them in with the
         // corresponding modulus and value elements similar to the example below
@@ -59,6 +72,17 @@ public class solver {
         // b.add(5);
         // b.add(7);
         // solve(a, b);
-        // prints 233
+        // // prints 233
+
+        // ArrayList<Integer> a = new ArrayList<>();
+        // a.add(-1);
+        // a.add(-1);
+        // a.add(-1);
+        // ArrayList<Integer> b = new ArrayList<>();
+        // b.add(10);
+        // b.add(77);
+        // b.add(19);
+        // solve(a, b);
+        
     }
 }
