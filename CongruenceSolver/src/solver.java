@@ -30,7 +30,7 @@ public class solver {
                 while(x < 0)
                     x = x + m;
                 
-                System.out.println(x % m + "(mod" + m + ")");
+                System.out.println("x = " + x % m + "(mod" + m + ")");
             } else
                 System.out.println("Mod input is not pairwise relatively prime!");
         } else {
@@ -63,15 +63,15 @@ public class solver {
         // To run the program, create two lists and fill them in with the
         // corresponding modulus and value elements similar to the example below
 
-        // ArrayList<Integer> a = new ArrayList<>();
-        // a.add(2);
-        // a.add(3);
-        // a.add(2);
-        // ArrayList<Integer> b = new ArrayList<>();
-        // b.add(3);
-        // b.add(5);
-        // b.add(7);
-        // solve(a, b);
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(2);
+        a.add(3);
+        a.add(2);
+        ArrayList<Integer> b = new ArrayList<>();
+        b.add(3);
+        b.add(5);
+        b.add(7);
+        solve(a, b);
         // // prints 233
 
         // ArrayList<Integer> a = new ArrayList<>();
